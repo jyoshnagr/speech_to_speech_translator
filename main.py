@@ -35,7 +35,8 @@ def api_translate_text(text: str):
 
 
 @app.post("/translate-audio/")
-async def api_translate_audio(file: UploadFile = File(...)):
+async def api_translate_audio(file: UploadFile = File(...),source_lang: str = Form(...),
+    target_lang: str = Form(...)):
     """
     Upload an audio file → recognize → translate → synthesize → return translated audio + text
     """
@@ -51,10 +52,10 @@ async def api_translate_audio(file: UploadFile = File(...)):
             raise HTTPException(status_code=400, detail="Speech could not be recognized")
 
         # Translate text
-        translated = translate_text(text)
+        translated = translate_text(text, source_lang=source_lang, target_lang=target_lang)
 
         # Generate translated speech file
-        output_path = speak_text(translated)  # <-- Modify speak_text to return the file path
+        output_path = speak_text(translated, lang=target_lang)  # <-- Modify speak_text to return the file path
         # play_output()
 
         # Cleanup uploaded file

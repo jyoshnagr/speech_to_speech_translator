@@ -3,9 +3,9 @@ from config import TARGET_LANG, OUTPUT_AUDIO
 import os
 OUTPUT_AUDIO = "translated_audio.wav"
 
-def speak_text(text):
+def speak_text(text, lang):
     print("🔊 Converting translated text to speech...")
-    tts = gTTS(text=text, lang=TARGET_LANG)
+    tts = gTTS(text=text, lang=lang)
     tts.save(OUTPUT_AUDIO)
     print(f"✅ Saved translated speech to {OUTPUT_AUDIO}")
     # return OUTPUT_AUDIO
