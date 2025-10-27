@@ -1,0 +1,5 @@
+speechrecognition==3.10.4
+translate==3.6.1
+gtts==2.5.1
+pydub==0.25.1
+PyAudio==0.2.14
