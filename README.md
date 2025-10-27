@@ -22,6 +22,8 @@ SOURCE_LANG = "en"  # Input language
 TARGET_LANG = "es"  # Output language
 ```
 
+PyAudio==0.2.14
+
 https://www.geeksforgeeks.org/nlp/speech-to-speech-translation/
 
 Install Python 3.11
