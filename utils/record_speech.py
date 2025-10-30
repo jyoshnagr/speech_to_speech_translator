@@ -1,8 +1,8 @@
 import speech_recognition as sr
-from config import SOURCE_LANG, INPUT_AUDIO
+# from config import SOURCE_LANG, INPUT_AUDIO
 import os
 
-def record_and_recognize(audio_path=None):
+def record_and_recognize(audio_path=None, source_lang):
     recognizer = sr.Recognizer()
 
     if audio_path:
@@ -17,7 +17,7 @@ def record_and_recognize(audio_path=None):
 
     try:
         print("🧠 Recognizing speech...")
-        text = recognizer.recognize_google(audio, language=SOURCE_LANG)
+        text = recognizer.recognize_google(audio, language=source_lang)
         print(f"📝 Recognized: {text}")
 
         # Save input audio to file

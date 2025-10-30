@@ -55,7 +55,7 @@ async def api_translate_audio(file: UploadFile = File(...),source_lang: str = Fo
             tmp.write(await file.read())
 
         # Run speech recognition on uploaded audio
-        text, input_audio_path = record_and_recognize(temp_path)
+        text, input_audio_path = record_and_recognize(temp_path, source_lang)
         if not text:
             raise HTTPException(status_code=400, detail="Speech could not be recognized")
 
