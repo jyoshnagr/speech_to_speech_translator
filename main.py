@@ -1,4 +1,5 @@
 from fastapi import FastAPI, UploadFile, File, Form, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 import tempfile
 import os
@@ -11,6 +12,13 @@ import base64
 
 
 app = FastAPI(title="Speech-to-Speech Translator API")
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 def main():
     print("=== 🌐 Speech-to-Speech Translator ===")
@@ -87,4 +95,3 @@ if __name__ == "__main__":
     else:
         # Default CLI mode
         main()
-
