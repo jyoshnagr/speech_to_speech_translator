@@ -1,5 +1,5 @@
 import speech_recognition as sr
-# from config import SOURCE_LANG, INPUT_AUDIO
+from config import SOURCE_LANG, INPUT_AUDIO
 import os
 
 def record_and_recognize(audio_path=None, source_lang=None):
